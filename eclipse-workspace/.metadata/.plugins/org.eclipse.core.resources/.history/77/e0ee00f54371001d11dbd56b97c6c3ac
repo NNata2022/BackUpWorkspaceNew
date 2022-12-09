@@ -1,0 +1,16 @@
+package class_13Nov;
+
+public class Exel_operations {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String path = System.getProperty("user.dir")+"C:\\Users\\Owner\\eclipse-workspace\\AUTOMATION_BATCH\\src\\test\\java\\class_13Nov\\DataSample.xlsx";
+		Xls_Reader xls = new Xls_Reader(path);
+		//get the row count
+		int row = xls.getRowCount("BrowserTest");
+		System.out.println();
+		
+
+	}
+
+}

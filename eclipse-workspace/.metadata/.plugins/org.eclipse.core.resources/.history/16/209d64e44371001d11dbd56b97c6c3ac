@@ -1,0 +1,44 @@
+package class_13Nov;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.openga.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateProperties {
+	
+public static Properties prop;
+public static FileInputStream ip;
+public static ChromeDriver driver;
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		//C:\Users\Owner\eclipse-workspace\AUTOMATION_BATCH\src\test\java\class_13Nov
+		String path = System.getProperty("user.dir")+ "C:\\Users\\Owner\\eclipse-workspace\\AUTOMATION_BATCH\\src\\test\\java\\class_13Nov";
+		System.out.println(System.getProperty("user.dir"));
+
+		
+		prop = new Properties();
+		ip = new FileInputStream(path);
+		prop.load(ip);
+		
+		System.out.println(prop.getProperty("url"));
+		System.out.println(prop.getProperty("usernameXpath"));
+		System.out.println(prop.getProperty("usernme"));
+		System.out.println(prop.getProperty("passwordXpath"));
+		System.out.println(prop.getProperty("password"));
+		System.out.println(prop.getProperty("signinButtonXpath"));
+		
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(prop.getProperty("url"));
+		driver.findElement(By.xpath(prop.getProperty("usernameXpath"))).sendKeys(prop.getProperty("username"));
+		driver.findElement(By.xpath(prop.getProperty("passwordXpath"))).sendKeys(prop.getProperty("password"));
+		
+		
+	}
+
+}
